@@ -30,11 +30,41 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user added product to cart",
+  "name": "user added 5 product to cart",
   "keyword": "And "
 });
 formatter.match({
-  "location": "steps.OrderSteps.user_added_product_to_cart()"
+  "location": "steps.OrderSteps.user_added_product_to_cart(int)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user confirmed order",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "steps.OrderSteps.user_confirmed_order()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user buy t-shirt",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "steps.OrderSteps.user_buy_t_shirt()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "take screenshot",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "steps.OrderSteps.take_screenshot()"
 });
 formatter.result({
   "status": "passed"
