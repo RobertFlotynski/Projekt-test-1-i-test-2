@@ -30,7 +30,16 @@ public class SweaterDetals extends PageObject {
 
     public void setQuantity() {
         quantity.clear();
-        quantity.sendKeys(String.valueOf(5));
+        String[] digits = "5".split("");
+        for (String digit : digits) {
+            quantity.sendKeys(digit);
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+       // quantity.sendKeys(String.valueOf(5));
     }
 
     public void addToChart() {

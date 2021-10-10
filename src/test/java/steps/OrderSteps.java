@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,6 +15,7 @@ public class OrderSteps {
     WebDriver driver;
     SweaterDetals sweaterDetals;
     CartDetails cartDetails;
+    BuyTshirt buyTshirt;
 
     @Given("user logged in system")
     public void user_logs_in_to_prodkurscoderslab() throws Throwable {
@@ -40,8 +42,9 @@ public class OrderSteps {
 
     @Given("user added product to cart")
     public void user_added_product_to_cart() {
-        sweaterDetals.setSize("M");
         sweaterDetals.setQuantity();
+        sweaterDetals.setSize("M");
+
         sweaterDetals.addToChart();
         sweaterDetals.proceedToCheckout();
          cartDetails = new CartDetails(driver);
@@ -52,6 +55,15 @@ public class OrderSteps {
     @Given("user confirmed order")
     public void user_confirmed_order() {
         cartDetails.click();
+        buyTshirt = new BuyTshirt(driver);
+    }
+    @When("user buy t-shirt")
+    public void user_buy_t_shirt() {
+        buyTshirt.ConfirmAddressesclick();
+        buyTshirt.confirmDeliveryOption();
+        buyTshirt.payment_option_1();
+        buyTshirt.conditions_to_approve();
+        buyTshirt.clickBuyButton();
     }
 
 }

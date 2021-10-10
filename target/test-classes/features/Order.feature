@@ -6,5 +6,6 @@ Feature: Order Testing
     And user chose Hummingbird Printed Sweater
     And user added product to cart
     And user confirmed order
+    When user buy t-shirt
 
 
