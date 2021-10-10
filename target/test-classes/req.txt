@@ -2,7 +2,7 @@
 2) wybierze do zakupu Hummingbird Printed Sweater, /// done
 3) wybierze rozmiar M , //done
 4) wybierze 5 sztuk według parametru podanego w teście ,
-5) dodaj produkt do koszyka,
+5) dodaj produkt do koszyka, //done
 6) przejdzie do opcji - checkout,
 7) potwierdzi address (możesz go dodać wcześniej ręcznie),
 8) wybierze metodę odbioru - PrestaShop "pick up in store",

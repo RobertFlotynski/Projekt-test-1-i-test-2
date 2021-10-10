@@ -13,6 +13,7 @@ public class OrderSteps {
     UserInfoPage userInfoPage;
     WebDriver driver;
     SweaterDetals sweaterDetals;
+    CartDetails cartDetails;
 
     @Given("user logged in system")
     public void user_logs_in_to_prodkurscoderslab() throws Throwable {
@@ -43,6 +44,14 @@ public class OrderSteps {
         sweaterDetals.setQuantity();
         sweaterDetals.addToChart();
         sweaterDetals.proceedToCheckout();
+         cartDetails = new CartDetails(driver);
+
+
+    }
+
+    @Given("user confirmed order")
+    public void user_confirmed_order() {
+        cartDetails.click();
     }
 
 }
