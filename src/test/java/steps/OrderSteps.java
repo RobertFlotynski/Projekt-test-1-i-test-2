@@ -1,13 +1,18 @@
 package steps;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import pages.*;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class OrderSteps {
@@ -40,9 +45,9 @@ public class OrderSteps {
         sweaterDetals = new SweaterDetals(driver);
     }
 
-    @Given("user added product to cart")
-    public void user_added_product_to_cart() {
-        sweaterDetals.setQuantity();
+    @Given("user added {int} product to cart")
+    public void user_added_product_to_cart(int quantity) {
+        sweaterDetals.setQuantity(quantity);
         sweaterDetals.setSize("M");
 
         sweaterDetals.addToChart();
@@ -64,6 +69,20 @@ public class OrderSteps {
         buyTshirt.payment_option_1();
         buyTshirt.conditions_to_approve();
         buyTshirt.clickBuyButton();
+    }
+    @Then("take screenshot")
+    public void take_screenshot()throws Exception{
+        takeSnapShot(driver,"C:\\Users\\Robert\\Desktop\\Selenium dzien 6\\projekt\\test.png");
+    }
+    private void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception {
+
+        TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
+
+        File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+
+        File DestFile = new File(fileWithPath);
+
+        FileUtils.copyFile(SrcFile, DestFile);
     }
 
 }

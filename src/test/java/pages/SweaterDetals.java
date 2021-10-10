@@ -28,9 +28,9 @@ public class SweaterDetals extends PageObject {
         new Select(size).selectByVisibleText(s);
     }
 
-    public void setQuantity() {
+    public void setQuantity(int q) {
         quantity.clear();
-        String[] digits = "5".split("");
+        String[] digits = String.valueOf(q).split("");
         for (String digit : digits) {
             quantity.sendKeys(digit);
             try {
