@@ -11,6 +11,6 @@ public abstract class PageObject {
     public PageObject(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
-        wait = new WebDriverWait(webDriver, 60, 1000);
+        wait = new WebDriverWait(webDriver, 60, 2000);
     }
 }

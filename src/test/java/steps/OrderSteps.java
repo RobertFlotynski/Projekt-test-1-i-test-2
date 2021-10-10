@@ -4,16 +4,15 @@ import io.cucumber.java.en.Given;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.ClothesPage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.UserInfoPage;
+import org.openqa.selenium.support.FindBy;
+import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class OrderSteps {
     UserInfoPage userInfoPage;
     WebDriver driver;
+    SweaterDetals sweaterDetals;
 
     @Given("user logged in system")
     public void user_logs_in_to_prodkurscoderslab() throws Throwable {
@@ -29,11 +28,21 @@ public class OrderSteps {
         loginPage.logInAs("robertflotka@gmail.com", "Test123");
         userInfoPage = new UserInfoPage(driver);
     }
-    @Given ("user chose Hummingbird Printed Sweater")
+
+    @Given("user chose Hummingbird Printed Sweater")
     public void user_chose_Hummingbird_Printed_Sweater() {
         userInfoPage.clickclothesButtonClick();
         ClothesPage clothesPage = new ClothesPage(driver);
         clothesPage.choiceSweater();
+        sweaterDetals = new SweaterDetals(driver);
+    }
+
+    @Given("user added product to cart")
+    public void user_added_product_to_cart() {
+        sweaterDetals.setSize("M");
+        sweaterDetals.setQuantity();
+        sweaterDetals.addToChart();
+        sweaterDetals.proceedToCheckout();
     }
 
 }

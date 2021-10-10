@@ -4,5 +4,6 @@ Feature: Order Testing
 
     Given user logged in system
     And user chose Hummingbird Printed Sweater
-    
+    And user added product to cart
+
 
