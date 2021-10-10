@@ -4,9 +4,7 @@ import io.cucumber.java.en.Given;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.UserInfoPage;
+import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +25,7 @@ public class ChangeUserInfoSteps {
         driver.get("https://prod-kurs.coderslab.pl/");
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = homePage.clickSignInButton();
-        loginPage.loginAs("https://10minutemail.com/", "CodersLab");
+        loginPage.logInAs("robertflotka@gmail.com", "Test123");
     }
 
     @Given("User click sign in button")
@@ -45,7 +43,10 @@ public class ChangeUserInfoSteps {
 
     @Given("set email and password")
     public void set_email_and_password() {
-    loginPage.loginAs("https://10minutemail.com/", "CodersLab");
+        ProfilePage profilePage = loginPage.logInAs("robertflotka@gmail.com", "Test123");
+        AddressesPage addressesPage = profilePage.clickAddressLink();
+        AddressFormPage addressFormPage = addressesPage.clickCreateAddressLink();
+        addressFormPage.fildAddressForm("city","National","address");
     }
 
     @Given("click login button")

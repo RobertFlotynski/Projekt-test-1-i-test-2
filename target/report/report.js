@@ -37,7 +37,7 @@ formatter.match({
   "location": "steps.ChangeUserInfoSteps.click_login_button()"
 });
 formatter.result({
-  "error_message": "io.cucumber.java.PendingException: TODO: implement me\r\n\tat steps.ChangeUserInfoSteps.click_login_button(ChangeUserInfoSteps.java:54)\r\n\tat ✽.click login button(classpath:features/Login.feature:7)\r\n",
+  "error_message": "io.cucumber.java.PendingException: TODO: implement me\r\n\tat steps.ChangeUserInfoSteps.click_login_button(ChangeUserInfoSteps.java:55)\r\n\tat ✽.click login button(classpath:features/Login.feature:7)\r\n",
   "status": "pending"
 });
 formatter.step({
