@@ -1,0 +1,11 @@
+1) zaloguje się na tego samego użytkownika z zadania 1,
+2) wybierze do zakupu Hummingbird Printed Sweater,
+3) wybierze rozmiar M ,
+4) wybierze 5 sztuk według parametru podanego w teście ,
+5) dodaj produkt do koszyka,
+6) przejdzie do opcji - checkout,
+7) potwierdzi address (możesz go dodać wcześniej ręcznie),
+8) wybierze metodę odbioru - PrestaShop "pick up in store",
+9) wybierze opcję płatności - Pay by Check,
+10) kliknie na "order with an obligation to pay",
+11) zrobi screenshot z potwierdzeniem zamówienia i kwotą.
